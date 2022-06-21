@@ -29,7 +29,7 @@ const Login = ({navigation}) => {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            navigation.navigate('Dashboard');
+            navigation.navigate('test');
           }}>
           <Text style={styles.text0}>Login</Text>
         </TouchableOpacity>
@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
   simple: {
     fontSize: 15,
     marginTop: 10,
+    color: '#000000',
   },
   input: {
     height: 40,

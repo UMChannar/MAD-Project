@@ -2,42 +2,32 @@ import React from 'react';
 import {
   Text,
   ScrollView,
-  View,
   StyleSheet,
+  Image,
+  View,
   TouchableOpacity,
 } from 'react-native';
+import {DrawerActions} from '@react-navigation/native';
 import {TextInput} from 'react-native-paper';
 
-const Signup = ({navigation}) => {
+const User = ({navigation}) => {
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.logoContainer}>
-        <Text style={styles.title}>TravelGo</Text>
+      <View style={styles.header}>
+        <TouchableOpacity
+          style={styles.iconbut}
+          onPress={() => navigation.dispatch(DrawerActions.openDrawer())}>
+          <Image style={styles.icon} source={require('../images/menu.png')} />
+        </TouchableOpacity>
       </View>
-      <View style={styles.formContainer}>
-        <Text style={styles.formTitle}>Signup</Text>
+      <Text style={styles.title}>Profile</Text>
+      <View style={styles.form}>
         <Text style={styles.simple}>User Name</Text>
         <TextInput style={styles.input} mode="outlined" />
         <Text style={styles.simple}>User Email</Text>
         <TextInput style={styles.input} mode="outlined" />
-        <Text style={styles.simple}>Password</Text>
-        <TextInput
-          style={styles.input}
-          mode="outlined"
-          secureTextEntry={true}
-        />
-        <Text style={styles.simple}>Confirm Password</Text>
-        <TextInput
-          style={styles.input}
-          mode="outlined"
-          secureTextEntry={true}
-        />
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => {
-            navigation.navigate('Login');
-          }}>
-          <Text style={styles.text0}>Register</Text>
+        <TouchableOpacity style={styles.button} onPress="">
+          <Text style={styles.text0}>Update</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -49,21 +39,30 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#CBC3E3',
   },
-  logoContainer: {
+  header: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 40,
+    flexDirection: 'row',
+    margin: 30,
+    justifyContent: 'space-between',
+  },
+  iconbut: {
+    height: 30,
+    width: 30,
+  },
+  icon: {
+    height: 30,
+    width: 30,
   },
   title: {
-    marginTop: 20,
+    marginTop: 10,
     fontSize: 30,
-    fontWeight: 'bold',
     color: '#000000',
+    marginHorizontal: 40,
+    fontWeight: 'bold',
   },
-  formContainer: {
-    marginTop: 40,
-    marginHorizontal: 30,
+  form: {
+    marginTop: 20,
+    marginHorizontal: 40,
   },
   formTitle: {
     fontSize: 23,
@@ -94,4 +93,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Signup;
+export default User;
